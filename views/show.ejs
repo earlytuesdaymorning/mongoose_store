@@ -4,6 +4,19 @@
     <%- include("./partials/head.ejs") %>
 </head>
 <body>
-    
+    <%- include("./partials/styles.ejs") %>
+    <div class="full-page">
+        <header>
+            <%- include("./partials/header.ejs") %>
+        </header>
+        <h1><%= item.name %></h1>
+        <div class="item-details">
+            <img class="show-img" src="<%=item.img %>"><br />
+            <h4 class="price">
+                $<%= item.price %> | <button class="buy-button">buy</button>
+            </h4>
+            <p class="description"><%= item.description %></p>
+        </div>
+    </div>
 </body>
 </html>

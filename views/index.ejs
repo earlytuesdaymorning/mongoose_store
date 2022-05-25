@@ -4,6 +4,7 @@
     <%- include("./partials/head.ejs") %>
 </head>
 <body>
+    <%- include("./partials/styles.ejs") %>
     <div class="full-page">
         <header>
         <%- include("./partials/header.ejs") %>
@@ -12,8 +13,8 @@
         <div class="all-items">
             <% items.forEach(item => { %>
                 <div class="item">
-                    <img src=<%= item.img %>>
-                    <a href="store/<%=item._id; %>"> <%=item.name; %> | $<%=item.price; %></a>
+                    <img class="index-img" src=<%= item.img %>> <br />
+                    <a href="<%=item._id; %>"> <%=item.name; %> | $<%=item.price; %></a>
                 </div>
             <% }) %>
         </div>

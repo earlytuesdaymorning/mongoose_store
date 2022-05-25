@@ -76,7 +76,13 @@ app.post("/store", (req, res) => {
 //E
 
 //Show
-
+app.get('/store/:id', (req, res) => {
+    Store.findById(req.params.id, (err, foundItem) => {
+        res.render("show.ejs", {
+            item: foundItem,
+        });
+    });
+});
 
 //App is listening
 app.listen(port, () => {
