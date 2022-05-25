@@ -1,5 +1,6 @@
 //require dependencies
 const express = require("express");
+const res = require("express/lib/response");
 const methodOverride = require("method-override");
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -24,6 +25,7 @@ const port = 3000;
 //mount middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(express.static("public"));
 
 //mount routes
 //Index 
@@ -45,11 +47,31 @@ app.get("/store/new", (req, res) => {
     res.render("new.ejs");
 });
 
-//D
+//Delete
+app.delete("/store/:id", (req, res) => {
+    Store.findByIdAndDelete(req.params.id, (error, deletedItem) => {
+        res.send({success: true});
+    });
+});
 
-//U
+//Update
+app.put("/store/:id", (req, res) => {
+    Store.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (error, updatedItem) => {
+            res.send(updatedItem);
+        }
+    );
+});
 
-//C
+//Create
+app.post("/store", (req, res) => {
+    Store.create(req.body, (error, createdItem) => {
+        res.redirect("/store")
+    });
+});
 
 //E
 
