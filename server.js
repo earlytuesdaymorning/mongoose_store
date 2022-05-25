@@ -27,6 +27,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
+//seed
+const storeSeed = require("./models/storeSeed.js");
+app.get("store/seed", (req, res) => {
+    Store.deleteMany({}, (error, allItems) => {});
+    Store.create(storeSeed, (error, data) => {
+        res.redirect("/store");
+    });
+});
+
 //mount routes
 //Index 
 app.get("/", (req, res) => {
@@ -38,13 +47,16 @@ app.get("/store", (req, res) => {
     Store.find({}, (error, allItems) => {
         res.render("index.ejs", {
             items: allItems,
+            tabTitle: "Mongoose Store"
         });
     });
 });
 
 //New
 app.get("/store/new", (req, res) => {
-    res.render("new.ejs");
+    res.render("new.ejs", {
+        tabTitle: "Seller Form"
+    });
 });
 
 //Delete
@@ -80,6 +92,7 @@ app.get('/store/:id', (req, res) => {
     Store.findById(req.params.id, (err, foundItem) => {
         res.render("show.ejs", {
             item: foundItem,
+            tabTitle: "Item Details"
         });
     });
 });

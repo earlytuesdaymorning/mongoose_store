@@ -1,0 +1,51 @@
+
+module.exports = [{
+    name: "Bag of Bugs",
+    description: "An assortment of gourmet insects, caught fresh daily and shipped live.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Chingrit_thot.jpg",
+    price: 15,
+    qty: 28,
+},
+{
+    name: "Bundle of Earthworms",
+    description: "Delicious and chewy dried earthworms, caught daily and sold by the bundle.",
+    img: "https://images2.imgbox.com/68/2c/4AeEhGom_o.png",
+    price: 30,
+    qty: 52,
+},
+{
+    name: "Fresh Crab",
+    description: "Species varies depending on availability and store location. This delicacy is wild caught and ships live. Contact your local Mongoose Store franchise owner for details.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Cancer_pagurus.jpg/1024px-Cancer_pagurus.jpg",
+    price: 25,
+    qty: 12,
+},
+{
+    name: "Live Geckos",
+    description: "Tender, tasty pair of sustainably farmed geckos.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Mediterranean_house_gecko.JPG/1024px-Mediterranean_house_gecko.JPG",
+    price: 10,
+    qty: 59,
+},
+{
+    name: "Brown Rat",
+    description: "A single rat, sent to you live. Farmed and guaranteed to be juicy.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Rattus_norvegicus_-Fairlands_Valley_Park%2C_Stevenage%2C_England-8.jpg",
+    price: 4,
+    qty: 43,
+},
+{
+    name: "Snake Snack Original",
+    description: "Snake Snack Original flavored ribbon snake jerky. Wild caught daily.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/d/de/EasternRibbonSnake.jpg",
+    price: 6,
+    qty: 31,
+},
+{
+    name: "Spicy Snake Snack LIMITED TIME",
+    description: "Spicy Snake Snack was a favorite amonst Mongoose Store shoppers, and so we are bringing them back! Chili flavored rattlesnake jerky. Limited Quantity.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Adult_Crotalus_horridus.jpg",
+    price: 10,
+    qty: 8,
+},
+];

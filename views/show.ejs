@@ -13,7 +13,8 @@
         <div class="item-details">
             <img class="show-img" src="<%=item.img %>"><br />
             <h4 class="price">
-                $<%= item.price %> | <button class="buy-button">buy</button>
+                $<%= item.price %> | <%= item.qty %> left <br />
+                <button class="buy-button">buy</button>
             </h4>
             <p class="description"><%= item.description %></p>
         </div>
