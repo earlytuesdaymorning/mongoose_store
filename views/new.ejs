@@ -4,6 +4,31 @@
     <%- include("./partials/head.ejs") %>
 </head>
 <body>
-    new
+    <%- include("./partials/styles.ejs") %>
+    <div class="full-page">
+        <header>
+        <%- include("./partials/header.ejs") %>
+        </header>
+        <h1>Add an Item to Sell</h1>
+        <!-- i am unable to get the information to store in the database through form, create route works with postman, but this is an empty object when using form -->
+        <div class="new-form">
+            <form action="/store" method="POST">
+                <fieldset class="item-information">
+                    <legend>Item Information</legend>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" />
+                    <label for="description">Description</label>
+                    <input id="description" type="text" />
+                    <label for="img-url">Image URL</label>
+                    <input type="text" id="img-url" />
+                    <label for="price">Price</label>
+                    <input type="text" id="price" />
+                    <label for="qty">Qty</label>
+                    <input type="text" id="qty" />
+                </fieldset>
+                <input type="submit" value="SELL">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
