@@ -4,6 +4,18 @@
     <%- include("./partials/head.ejs") %>
 </head>
 <body>
+    <!-- tried npm install jquery and used it in head as well, does not seem to
+    get button to change this way-->
+    <!-- <script>
+        $(document).ready(function () {
+            const i = $(`${item.qty}`).val();
+            $(".buy-button").click(function () {
+                $(`${item.qty}`).val(--i);
+            });
+        });
+    </script> 
+    also just tried playing around with jquery in flounders but that broke page-->
+
     <%- include("./partials/styles.ejs") %>
     <div class="full-page">
         <header>
