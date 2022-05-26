@@ -79,6 +79,20 @@ app.put("/store/:id", (req, res) => {
     );
 });
 
+// app.put("/store/:id/buy", (req, res) => {
+//     Store.findByIdAndUpdate(
+//         req.params.id,
+//         req.body,
+//         { new: true },
+//         (error, updatedItem) => {
+//             item.qty -= 1;
+//             item.save();
+//             res.redirect("/store/:id");
+//         }
+//     )
+// });
+//need an app.put and buy route. buy should change and store just just update html
+
 //Create
 app.post("/store", (req, res) => {
     Store.create(req.body, (error, createdItem) => {
@@ -95,6 +109,19 @@ app.get("/store/:id/edit", (req, res) => {
         });
     });
 });
+
+// app.get("/store/:id/buy", (req, res) => {
+//     Store.findByIdAndUpdate(req.params.id, (error, foundItem) => {
+//         item: foundItem,
+//         req.body,
+//         { new: true },
+//         (error, updatedItem) => {
+//             item.qty -= 1;
+//             item.save();
+//         },
+//         res.redirect("/store/:id")
+//     });
+// });
 
 //Show
 app.get("/store/:id", (req, res) => {
