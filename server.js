@@ -1,10 +1,10 @@
 //require dependencies
 const express = require("express");
-const res = require("express/lib/response");
 const methodOverride = require("method-override");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const Store = require("./models/store.js")
+const morgan = require("morgan");
 
 //database connection
 mongoose.connect(process.env.DATABASE_URL, {
@@ -26,15 +26,16 @@ const port = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
+app.use(morgan('dev'));
 
-//seed
-const storeSeed = require("./models/storeSeed.js");
-app.get("store/seed", (req, res) => {
-    Store.deleteMany({}, (error, allItems) => {});
-    Store.create(storeSeed, (error, data) => {
-        res.redirect("/store");
-    });
-});
+// //seed
+// const storeSeed = require("./models/storeSeed.js");
+// app.get("store/seed", (req, res) => {
+//     Store.deleteMany({}, (error, allItems) => {});
+//     Store.create(storeSeed, (error, data) => {
+//         res.redirect("/store");
+//     });
+// });
 
 //mount routes
 //Index 
@@ -62,7 +63,7 @@ app.get("/store/new", (req, res) => {
 //Delete
 app.delete("/store/:id", (req, res) => {
     Store.findByIdAndDelete(req.params.id, (error, deletedItem) => {
-        res.send({success: true});
+        res.send({ success: true });
     });
 });
 
@@ -71,7 +72,7 @@ app.put("/store/:id", (req, res) => {
     Store.findByIdAndUpdate(
         req.params.id,
         req.body,
-        {new: true},
+        { new: true },
         (error, updatedItem) => {
             res.send(updatedItem);
         }
@@ -88,12 +89,18 @@ app.post("/store", (req, res) => {
 //E
 
 //Show
-app.get('/store/:id', (req, res) => {
+app.get("/store/:id", (req, res) => {
     Store.findById(req.params.id, (err, foundItem) => {
         res.render("show.ejs", {
             item: foundItem,
             tabTitle: "Item Details"
         });
+    });
+});
+
+app.get("/founder", (req, res) => {
+    res.render("founder.ejs", {
+        tabTitle: "Our Founder",
     });
 });
 
