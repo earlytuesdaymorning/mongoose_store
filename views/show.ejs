@@ -17,6 +17,10 @@
                 <button class="buy-button">buy</button>
             </h4>
             <p class="description"><%= item.description %></p>
+            <form action="/store/<%= item.id %>?_method=DELETE" method="POST">
+                <input class="delete-button" type="submit" value="DELETE" />
+                <button class="edit-button"><a href="/store/<%=item._id %>/edit">Edit</a></button>
+            </form>
         </div>
     </div>
 </body>

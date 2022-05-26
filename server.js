@@ -63,7 +63,7 @@ app.get("/store/new", (req, res) => {
 //Delete
 app.delete("/store/:id", (req, res) => {
     Store.findByIdAndDelete(req.params.id, (error, deletedItem) => {
-        res.send({ success: true });
+        res.redirect("/store")
     });
 });
 
@@ -86,7 +86,14 @@ app.post("/store", (req, res) => {
     });
 });
 
-//E
+//Edit
+app.get("/store/:id/edit", (req, res) => {
+    Store.findById(req.params.id, (error, foundItem) => {
+        res.render("edit.ejs", {
+            item: foundItem,
+        });
+    });
+});
 
 //Show
 app.get("/store/:id", (req, res) => {
