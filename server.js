@@ -4,7 +4,7 @@ const methodOverride = require("method-override");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const Store = require("./models/store.js")
-const morgan = require("morgan");
+// const morgan = require("morgan");
 
 //database connection
 mongoose.connect(process.env.DATABASE_URL, {
@@ -26,7 +26,7 @@ const port = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 // //seed
 // const storeSeed = require("./models/storeSeed.js");
@@ -79,6 +79,7 @@ app.put("/store/:id", (req, res) => {
     );
 });
 
+//trying to route as put req but browser says cannot 
 // app.put("/store/:id/buy", (req, res) => {
 //     Store.findByIdAndUpdate(
 //         req.params.id,
@@ -91,7 +92,7 @@ app.put("/store/:id", (req, res) => {
 //         }
 //     )
 // });
-//need an app.put and buy route. buy should change and store just just update html
+//need an app.put and buy route. buy should change and store not just update html
 
 //Create
 app.post("/store", (req, res) => {
