@@ -74,7 +74,7 @@ app.put("/store/:id", (req, res) => {
         req.body,
         { new: true },
         (error, updatedItem) => {
-            res.send(updatedItem);
+            res.redirect(`/store/${req.params.id}`)
         }
     );
 });
@@ -91,6 +91,7 @@ app.get("/store/:id/edit", (req, res) => {
     Store.findById(req.params.id, (error, foundItem) => {
         res.render("edit.ejs", {
             item: foundItem,
+            tabTitle: "Edit Item"
         });
     });
 });

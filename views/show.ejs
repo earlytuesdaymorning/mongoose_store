@@ -11,7 +11,7 @@
         </header>
         <h1><%= item.name %></h1>
         <div class="item-details">
-            <img class="show-img" src="<%=item.img %>"><br />
+            <img class="show-img" src="<%= item.img %>"><br />
             <h4 class="price">
                 $<%= item.price %> | <%= item.qty %> left <br />
                 <button class="buy-button">buy</button>
@@ -19,7 +19,7 @@
             <p class="description"><%= item.description %></p>
             <form action="/store/<%= item.id %>?_method=DELETE" method="POST">
                 <input class="delete-button" type="submit" value="DELETE" />
-                <button class="edit-button"><a href="/store/<%=item._id %>/edit">Edit</a></button>
+                <button class="edit-button"><a href="/store/<%=item.id %>/edit">Edit</a></button>
             </form>
         </div>
     </div>

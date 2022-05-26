@@ -1,1 +1,34 @@
-edit page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+</head>
+<body>
+    <%- include("./partials/styles.ejs") %>
+        <div class="full-page">
+            <header>
+                <%- include("./partials/header.ejs") %>
+            </header>
+            <h1>Edit </h1>
+            <div class="edit-form">
+                <form action="/store/<%=item._id%>?_method=PUT" method="POST">
+                    <fieldset class="item-information">
+                        <legend>Item Information</legend>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" value="<%=item.name%>" />
+                        <label for="description">Description</label>
+                        <input id="description" type="text" name="description" value="<%=item.description%>" />
+                        <label for="img-url">Image URL</label>
+                        <input type="text" id="img-url" name="img" value="<%=item.img%>" />
+                        <label for="price">Price</label>
+                        <input type="number" id="price" name="price" value="<%=item.price%>" />
+                        <label for="qty">Qty</label>
+                        <input type="number" id="qty" name="qty" value="<%=item.qty%>" />
+                    </fieldset>
+                    <input type="submit" value="SUBMIT">
+                </form>
+            </div>
+    
+        </div>
+</body>
+</html>
